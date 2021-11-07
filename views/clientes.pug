@@ -1,0 +1,22 @@
+extends base
+
+block container
+  h1 Clientes
+  
+  if clientes
+    ul.list-group
+      each cliente, i in clientes
+        li.list-group-item
+          a(href='/clientes/'+cliente.cliente_id)= cliente.nombre + ' ' + cliente.municipio_id
+  form(method='POST', action='/clientes')
+    .form-group
+      label Nombre:
+      input.form-control(name='nombre', type='text')
+    .form-group
+      label Municipio:
+      select.form-control(name='municipio_id', type='select')
+        each municipio, i in municipios
+            option(value=municipio.municipio_id) #{municipio.nombre}
+
+    br
+    input.btn.btn-primary(type='submit', value='Submit')

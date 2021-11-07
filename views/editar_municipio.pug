@@ -1,0 +1,15 @@
+extends base
+
+block container
+  h1 Editar Municipio
+  form(method='POST', action='/municipios/update/'+municipio.municipio_id)
+    .form-group
+      label Codigo Municipio:
+      input.form-control(name='municipio_id', type='text', value=municipio.municipio_id)
+    .form-group
+      label Nombre:
+      input.form-control(name='nombre', type='text', value=municipio.nombre)
+    br
+    input.btn.btn-primary(type='submit', value='Submit')
+    a.btn.btn-primary(href='/municipios/delete/'+municipio.municipio_id)= 'Borrar'
+

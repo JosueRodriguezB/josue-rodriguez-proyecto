@@ -1,0 +1,18 @@
+extends base
+
+block container
+  h1 Municipios
+  
+  ul.list-group
+    each municipio, i in municipios
+      li.list-group-item
+        a(href='/municipios/'+municipio.municipio_id)= municipio.nombre
+  form(method='POST', action='/municipios')
+    .form-group
+      label Codigo:
+      input.form-control(name='municipio_id', type='text')
+    .form-group
+      label Nombre:
+      input.form-control(name='nombre', type='text')
+    br
+    input.btn.btn-primary(type='submit', value='Submit')

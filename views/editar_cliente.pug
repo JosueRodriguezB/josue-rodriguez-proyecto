@@ -1,0 +1,20 @@
+extends base
+
+block container
+  h1 Editar Cliente
+
+  form(method='POST', action='/clientes/update/'+cliente.cliente_id)
+    .form-group
+      label Nombre:
+      input.form-control(name='nombre', type='text', value=cliente.nombre)
+      
+    .form-group
+      label Municipio:
+      select.form-control(name='municipio_id', type='select', value=cliente.municipio_id)
+        each municipio, i in municipios
+            option(value=municipio.municipio_id) #{municipio.nombre}
+    br
+    input.btn.btn-primary(type='submit', value='Submit')
+    br
+    a.btn.btn-primary(href='/clientes/delete/'+cliente.cliente_id)= 'Borrar'
+
